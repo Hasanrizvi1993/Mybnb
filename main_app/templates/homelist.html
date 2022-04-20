@@ -1,15 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-    <a href="{% url 'home_create' %}">Add Cat</a>
+    <a href="{% url 'home_create' %}">Add a Home</a>
     <h1>Our Homes:</h1>
     {% for home in homes %}
     <img src="{{home.image}}" alt="{{home.location}}">
-    <h3>Location: {{home.location}}</h3>
+    <h3>Location:</h3>
+    <a href="{% url 'home_detail' home.pk %}">
+    <h3>{{home.location}}</h3>
+    </a>
     <h3>Home Type: {{home.home_type}}</h3>
-    <h3>Amenities: {{home.amenities}}</h3>
-    <h3>Contact name: {{home.contact_name}}</h3>
-    <h3>Contact email: {{home.contact_email}}</h3>
-    <h3>Bedrooms: {{home.bedrooms}}</h3>
-    <h3>Available: {{home.available}}</h3>
     {% endfor %}
 {% endblock %}
 

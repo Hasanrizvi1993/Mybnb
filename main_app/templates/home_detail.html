@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div>
+  <img src="{{home.image}}" alt="{{home.location}}" />
+</div>
+    <h1>{{home.location}}</h1>
+</div>
+<div>
+    <h3>Home Type: {{home.home_type}}</h3>
+    <h3>Amenities: {{home.amenities}}</h3>
+    <h3>Contact name: {{home.contact_name}}</h3>
+    <h3>Contact email: {{home.contact_email}}</h3>
+    <h3>Bedrooms: {{home.bedrooms}}</h3>
+    <h3>Available: {{home.available}}</h3>
+</div>
+<div>
+    <a href="{% url 'home_update' home.pk %}">Update</a>
+    <a href=""></a>
+</div>
+
+{% endblock %}
