@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Home(models.Model):
@@ -10,7 +11,9 @@ class Home(models.Model):
     contact_name = models.CharField(max_length=200)
     contact_email = models.CharField(max_length=254)
     bedrooms = models.CharField(max_length=200)
+    bathrooms = models.CharField(max_length=100)
     available = models.BooleanField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     
     def __str__(self):
