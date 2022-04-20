@@ -14,6 +14,7 @@ class Home(models.Model):
     bathrooms = models.CharField(max_length=100)
     available = models.BooleanField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    price = models.CharField(max_length=100)
 
     
     def __str__(self):

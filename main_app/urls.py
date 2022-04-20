@@ -10,6 +10,7 @@ urlpatterns = [
     path('homes/<int:pk>/', views.Home_Detail.as_view(), name="home_detail"),
     path('homes/<int:pk>/update', views.Home_Update.as_view(), name="home_update"),
     path('homes/<int:pk>/delete', views.Home_Delete.as_view(), name="home_delete"),
+    path('user/<username>/', views.profile, name='profile'),  
 ]
 
 

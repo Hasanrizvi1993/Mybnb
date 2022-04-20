@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>{{ username }}'s Listings:</h1>
+
+{% for home in homes %}
+<a href="/homes/{{ home.id }}">
+<h3>{{ home.location }}</h3>
+</a>
+<img src="{{home.image}}">
+{% endfor %}
+
+{% endblock %}

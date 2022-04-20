@@ -13,7 +13,9 @@
     <h3>Contact name: {{home.contact_name}}</h3>
     <h3>Contact email: {{home.contact_email}}</h3>
     <h3>Bedrooms: {{home.bedrooms}}</h3>
+    <h3>Bathrooms: {{home.bathrooms}}</h3>
     <h3>Available: {{home.available}}</h3>
+    <h3>{{home.price}}</h3>
 </div>
 <div>
     <a href="{% url 'home_update' home.pk %}">Update</a>

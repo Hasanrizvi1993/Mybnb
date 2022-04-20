@@ -8,6 +8,9 @@
     <h3>{{home.location}}</h3>
     </a>
     <h3>Home Type: {{home.home_type}}</h3>
+    <p>Added By: 
+        <a href='/user/{{home.user.username}}'>{{home.user.username}}</a>
+    </p>
     {% endfor %}
 {% endblock %}
 

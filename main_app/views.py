@@ -3,12 +3,13 @@ from audioop import reverse
 from re import template
 from django.shortcuts import render
 from django.views import View # <- View class to handle requests
-from django.http import HttpResponse # <- a class to handle sending a type of response
+from django.http import HttpResponse, HttpResponseRedirect # <- a class to handle sending a type of response
 from django.views.generic.base import TemplateView
 from .models import Home
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -35,10 +36,15 @@ class HomeList(TemplateView):
 
 class Home_Create(CreateView):
     model = Home
-    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'available']
+    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'bathrooms', 'price', 'available']
     template_name = "home_create.html"
-    def get_success_url(self):
-        return reverse('home_detail', kwargs={'pk': self.object.pk})
+    # def get_success_url(self):
+    #     return reverse('home_detail', kwargs={'pk': self.object.pk})
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect('/homes')
 
 
 class Home_Detail(DetailView):
@@ -48,7 +54,7 @@ class Home_Detail(DetailView):
 
 class Home_Update(UpdateView):
     model = Home
-    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'available']
+    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'bathrooms', 'price', 'available']
     template_name = "home_update.html"
     def get_success_url(self):
         return reverse('home_detail', kwargs={'pk': self.object.pk})
@@ -57,3 +63,10 @@ class Home_Delete(DeleteView):
     model = Home
     template_name = "home_delete_confirmation.html"
     success_url = "/homes/"
+
+
+
+def profile(request, username):
+    user = User.objects.get(username=username)
+    homes = Home.objects.filter(user=user)
+    return render(request, 'profile.html', {'username': username, 'homes': homes})
