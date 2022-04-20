@@ -11,6 +11,10 @@ urlpatterns = [
     path('homes/<int:pk>/update', views.Home_Update.as_view(), name="home_update"),
     path('homes/<int:pk>/delete', views.Home_Delete.as_view(), name="home_delete"),
     path('user/<username>/', views.profile, name='profile'),  
+#Car Route
+    path('cars/', views.car_home, name='car_index'),
+    path('cars/<int:car_id>', views.car_show, name='car_show'),
+    path('cars/create/', views.CarCreate.as_view(), name='car_create'),
 ]
 
 

@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views import View # <- View class to handle requests
 from django.http import HttpResponse, HttpResponseRedirect # <- a class to handle sending a type of response
 from django.views.generic.base import TemplateView
-from .models import Home
+from .models import Home, Car
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
@@ -70,3 +70,20 @@ def profile(request, username):
     user = User.objects.get(username=username)
     homes = Home.objects.filter(user=user)
     return render(request, 'profile.html', {'username': username, 'homes': homes})
+
+
+#Car Views
+
+def car_home(request):
+    cars = Car.objects.all()
+    return render(request, 'car_index.html', {'cars': cars})
+
+def car_show(request, car_id):
+    car = Car.objects.get(id=car_id)
+    return render(request, 'car_show.html', {'car': car})
+
+class CarCreate(CreateView):
+    model = Car
+    fields = '__all__'
+    template_name = "car_form.html"
+    success_url = '/cars'
