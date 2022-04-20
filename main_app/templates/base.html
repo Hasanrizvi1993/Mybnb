@@ -11,9 +11,25 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-  {% block content %}  
+  <body>
+    <nav>
+          <a href="/admin">Admin</a>
+          <span> | </span>
+          <a href="/">Home</a>
+          <span> | </span>
+          <a href="/about">About</a>
+          <span> | </span>
+          <a href="/homes">Movies</a>
+          <span> | </span>
+          <a href="{% url 'home_create' %}">Add a Movie</a>
+          <span> | </span>
+          </nav>
   
-  {% endblock %}
+      {% block content %}
+  
+      {% endblock %}
+      {% block potato %}
+      {% endblock %}
 </body>
 </html>
 
