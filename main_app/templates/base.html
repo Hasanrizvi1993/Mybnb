@@ -12,7 +12,7 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <nav>
+  <nav class="navbar fixed-top navbar-light bg-light">
         {% if user.is_authenticated %}
         <span><a href="{% url 'profile' user.username %}">Hello, {{ user.username }}!</a></span>
         <span> | </span>
@@ -25,6 +25,7 @@
         <span> | </span>
         <span><a href="{% url 'signup' %}">SignUp</a></span>
         {% endif %}
+        <span> | </span>
         <a href="/admin">Admin</a>
         <span> | </span>
         <a href="/">Home</a>
@@ -39,8 +40,11 @@
         <span> | </span>
         <a href="{% url 'car_create' %}">Add a Car</a>
         <span> | </span>
+        <button type="button" class="btn btn-outline-dark" onclick="myFunction()">Dark Mode On/Off</button>
       </nav>
-        <button onclick="myFunction()">Dark Mode On/Off</button>
+      <br/>
+      <br/>
+      <br/>
         <script>
           function myFunction() {
              let element = document.body;

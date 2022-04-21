@@ -57,3 +57,18 @@ img {
     height: 100%;
 }
 
+#signupform {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: left;
+
+}
+
+#signupformbutton {
+    margin-left and margin-right + width = 100%*/;
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
+}
