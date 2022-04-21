@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-    <a href="{% url 'home_create' %}">Add a Home</a>
     <h1>Our Homes:</h1>
     {% for home in homes %}
     <img src="{{home.image}}" alt="{{home.location}}">
