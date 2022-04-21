@@ -13,20 +13,31 @@
 <body>
   <body>
     <nav>
-          <a href="/admin">Admin</a>
-          <span> | </span>
-          <a href="/">Home</a>
-          <span> | </span>
-          <a href="/about">About</a>
-          <span> | </span>
-          <a href="/homes">Movies</a>
-          <span> | </span>
-          <a href="{% url 'home_create' %}">Add a Movie</a>
-          <span> | </span>
-          </nav>
-  
+        {% if user.is_authenticated %}
+        <span><a href="{% url 'profile' user.username %}">Hello, {{ user.username }}!</a></span>
+        <span> | </span>
+        <span><a href="{% url 'logout' %}">Logout</a></span>
+        <span> | </span>
+        {% else %}
+        <span><a href="{% url 'login' %}">Login</a></span>
+        <span> | </span>
+        <span><a href="{% url 'signup' %}">SignUp</a></span>
+        {% endif %}
+        <a href="/admin">Admin</a>
+        <span> | </span>
+        <a href="/">Home</a>
+        <span> | </span>
+        <a href="/about">About</a>
+        <span> | </span>
+        <a href="/homes">Homes</a>
+        <span> | </span>
+        <a href="/cars">Cars</a>
+        <span> | </span>
+        <a href="{% url 'home_create' %}">Add a Home</a>
+        <span> | </span>
+        <a href="{% url 'car_create' %}">Add a Car</a>
+        <span> | </span>
       {% block content %}
-  
       {% endblock %}
       {% block potato %}
       {% endblock %}
