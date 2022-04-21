@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views import View # <- View class to handle requests
 from django.http import HttpResponse, HttpResponseRedirect # <- a class to handle sending a type of response
 from django.views.generic.base import TemplateView
-from .models import Home, Car
+from .models import Home, Car, Review
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
@@ -106,6 +106,13 @@ class CarDelete(DeleteView):
     template_name = "car_confirm_delete.html"
     success_url = '/cars'
 
+
+#review views
+class AddReviewView(CreateView):
+    model = Review
+    template_name = "add_review.html"
+    fields = '__all__'
+    success_url = '/homes/'
 
 
 

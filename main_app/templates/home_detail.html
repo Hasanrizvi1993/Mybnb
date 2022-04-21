@@ -16,6 +16,7 @@
     <h3>Bathrooms: {{home.bathrooms}}</h3>
     <h3>Available: {{home.available}}</h3>
     <h3>{{home.price}}</h3>
+    <a href="{% url 'review_create' %}">Add Home Review</a>
 </div>
     <hr>
     {% for car in home.car.all %}
