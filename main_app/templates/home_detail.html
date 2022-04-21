@@ -21,6 +21,7 @@
     {% for car in home.car.all %}
     <div>
     <h4>Make: {{car.make}}</h4>
+    <img src="{{car.image}}" alt="{{car.make}}">
     <h4>Model: {{car.model}}</h4>
     <h4>Year: {{car.year}}</h4>
     <h4>Color: {{car.color}}</h4>

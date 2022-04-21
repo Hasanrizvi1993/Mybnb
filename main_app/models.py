@@ -36,6 +36,8 @@ class Car(models.Model):
     color = models.CharField(max_length=100)
     car_type = models.CharField(max_length=100, choices = CAR_CHOICES)
     available = models.BooleanField(max_length=100, choices = TRUE_FALSE_CHOICES)
+    car_contact_name = models.CharField(max_length=200)
+    car_contact_email = models.CharField(max_length=254)
 
 
     def __str__(self):

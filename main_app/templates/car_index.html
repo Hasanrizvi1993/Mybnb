@@ -6,12 +6,13 @@
 
 {% for car in cars %}
     <div>
-        <a href="{% url 'car_show' car.id %}">
-            <div class="card-content">
-                <span>{{ car.make }}</span>
-                <p>Color: {{ car.color }}</p>
-            </div>
-        </a>
+        <div class="card-content">
+            <span>{{ car.make }}</span> 
+            <p>Color: {{ car.color }}</p>
+            <p>Year: {{ car.year }}</p>
+            <a href="{% url 'car_show' car.id %}">Details about this car</a>
+        </div>
+        <hr>
     </div>
 {% endfor %}
 
