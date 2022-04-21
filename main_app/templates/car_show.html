@@ -8,6 +8,12 @@
     <div>
         <span>{{ car.make }}</span>
         <p>Color: {{ car.color }}</p>
+        <p>Owned by:</p>
+        {% for home in car.home_set.all %}
+            <p>{{home.location}}</p>
+        {% empty %}
+            <p>Nobody Home has this car</p>
+        {% endfor %}
     </div>
     <div>
   
