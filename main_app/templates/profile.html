@@ -10,6 +10,11 @@
 <h3>{{ home.location }}</h3>
 </a>
 <img src="{{home.image}}">
+<div>
+    <a href="{% url 'home_update' home.pk %}">Update</a>
+    <a href="{% url 'home_delete' home.pk %}">Delete</a>
+</div>
 {% endfor %}
+
 
 {% endblock %}

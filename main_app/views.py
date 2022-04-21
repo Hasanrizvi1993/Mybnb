@@ -39,7 +39,7 @@ class HomeList(TemplateView):
 @method_decorator(login_required, name='dispatch')
 class Home_Create(CreateView):
     model = Home
-    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'bathrooms', 'price', 'available', 'car']
+    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'bathrooms', 'price', 'available']
     template_name = "home_create.html"
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -74,7 +74,6 @@ def profile(request, username):
     user = User.objects.get(username=username)
     homes = Home.objects.filter(user=user)
     return render(request, 'profile.html', {'username': username, 'homes': homes})
-
 
 #Car Views
 def car_home(request):

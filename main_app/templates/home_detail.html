@@ -14,7 +14,11 @@
     <h3>Contact email: {{home.contact_email}}</h3>
     <h3>Bedrooms: {{home.bedrooms}}</h3>
     <h3>Bathrooms: {{home.bathrooms}}</h3>
-    <h3>Available: {{home.available}}</h3>
+    {% if home.available %}
+    <h3>Available: Yes</h3>
+    {% else %}
+    <h3>Available: No</h3>
+    {% endif %}
     <h3>{{home.price}}</h3>
 </div>
         <div id="review-box">
@@ -42,16 +46,18 @@
     <h4>Year: {{car.year}}</h4>
     <h4>Color: {{car.color}}</h4>
     <h4>Car Type: {{car.car_type}}</h4>
-    <h4>Available: {{car.available}}</h4>
+    {% if car.available %}
+    <h3>Car Available: Yes</h3>
+    {% else %}
+    <h3>Car Available: No</h3>
+    {% endif %}
+    
     </div>
         <a href="{% url 'car_show' car.pk %}">Check out more info about car</a>
     {% empty %}
         <div>This House has no cars</div>
     {% endfor %}
 
-<div>
-    <a href="{% url 'home_update' home.pk %}">Update</a>
-    <a href="{% url 'home_delete' home.pk %}">Delete</a>
-</div>
+
 
 {% endblock %}
