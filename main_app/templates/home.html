@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %}
 <h1>Home</h1>
+<h5>Search for homes to stay in your favorite city and live your life to the fullest</h5>
 <form method="POST" action="{% url 'search_homes' %}">
     {% csrf_token %}
     <input type="search" placeholder="Search Homes" name="searched">

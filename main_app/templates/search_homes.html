@@ -7,7 +7,8 @@
         </h1>
         <br/>
         {% for home in homes %}
-            {{ home.location }}<br/>
+        <a href="{% url 'home_detail' home.pk %}">{{ home.location }}</a>
+        <br/>
         {% endfor %}
         {% else %}
             <h1>Hey! you forgot to search for a home for your next stay</h1>
