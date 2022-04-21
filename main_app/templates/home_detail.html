@@ -17,8 +17,17 @@
     <h3>Available: {{home.available}}</h3>
     <h3>{{home.price}}</h3>
 </div>
+    <hr>
     {% for car in home.car.all %}
-        <div>{{car.make}}</div>
+    <div>
+    <h4>Make: {{car.make}}</h4>
+    <h4>Model: {{car.model}}</h4>
+    <h4>Year: {{car.year}}</h4>
+    <h4>Color: {{car.color}}</h4>
+    <h4>Car Type: {{car.car_type}}</h4>
+    <h4>Available: {{car.available}}</h4>
+    </div>
+        <a href="{% url 'car_show' car.pk %}">Check out more info about car</a>
     {% empty %}
         <div>This House has no cars</div>
     {% endfor %}

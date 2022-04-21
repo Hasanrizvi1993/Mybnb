@@ -39,7 +39,7 @@ class HomeList(TemplateView):
 @method_decorator(login_required, name='dispatch')
 class Home_Create(CreateView):
     model = Home
-    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'bathrooms', 'price', 'available']
+    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'bathrooms', 'price', 'available', 'car']
     template_name = "home_create.html"
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -56,7 +56,7 @@ class Home_Detail(DetailView):
 @method_decorator(login_required, name='dispatch')
 class Home_Update(UpdateView):
     model = Home
-    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'bathrooms', 'price', 'available']
+    fields = ['location', 'home_type', 'amenities', 'image', 'contact_name', 'contact_email', 'bedrooms', 'bathrooms', 'price', 'available', 'car']
     template_name = "home_update.html"
     def get_success_url(self):
         return reverse('home_detail', kwargs={'pk': self.object.pk})
