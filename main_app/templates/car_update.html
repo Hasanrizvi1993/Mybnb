@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div id="update-actor-form">
-<h1>Update {{car.make}}</h1>
+    <h1>Car Update</h1>
 
-<form action="" method="post">
-  {% csrf_token %} 
-
-  <button>Update Actor</button>
-</form>
-</div>
+    <form action="" method="post">
+        {% csrf_token%}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Update">
+    </form>
 
 {% endblock %}

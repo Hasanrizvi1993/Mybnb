@@ -88,14 +88,14 @@ def car_show(request, car_id):
 @method_decorator(login_required, name='dispatch')
 class CarCreate(CreateView):
     model = Car
-    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available', 'car_contact_name', 'car_contact_email']
+    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available', 'car_contact_name', 'car_contact_email', 'car_price']
     template_name = "car_form.html"
     success_url = '/cars'
 
 @method_decorator(login_required, name='dispatch')
 class CarUpdate(UpdateView):
     model = Car
-    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available', 'car_contact_name', 'car_contact_email']
+    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available', 'car_contact_name', 'car_contact_email', 'car_price']
     template_name = "car_update.html"
     success_url = '/cars'
 
