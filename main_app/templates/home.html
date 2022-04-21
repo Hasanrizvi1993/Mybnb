@@ -7,7 +7,7 @@
     <input type="search" placeholder="Search Homes" name="searched">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
   </form>
- 
+ <br/>
 <h5>Search for cars in your favorite city</h5>
 <form method="POST" action="{% url 'search_cars' %}">
   {% csrf_token %}
