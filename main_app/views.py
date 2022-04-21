@@ -122,7 +122,7 @@ def signup_view(request):
             print('HEY', user.username)
             return HttpResponseRedirect('/user/'+str(user))
         else:
-            HttpResponse('<h1>Try Again</h1>')
+            return render(request, 'signup.html', {'form': form})
     else:
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
@@ -145,10 +145,12 @@ def login_view(request):
                     login(request, user)
                     return HttpResponseRedirect('/user/'+u)
                 else:
-                    print('The account has been disabled.')
+                    return render(request, 'login.html', {'form': form})
             else:
-                print('The username and/or password is incorrect.')
+                return render(request, 'login.html', {'form': form})
+        else: 
+            return render(request, 'signup.html', {'form': form})
     else: # it was a get request so send the emtpy login form
         # form = LoginForm()
         form = AuthenticationForm()
-        return render(request, 'login.html', {'form': form}) 
+        return render(request, 'login.html', {'form': form})
