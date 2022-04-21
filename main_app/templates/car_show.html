@@ -20,11 +20,6 @@
         <p>Contact Name: {{car.car_contact_name}}</p>
         <p>Contact Email: {{car.car_contact_email}}</p>
         <p>Price: {{car.car_price}}</p>
-        <div>
-            <button><a href="{% url 'car_update' car.id %}">Edit Car</a></button>
-            <button><a href="{% url 'car_delete' car.id %}">Delete Car</a></button>
-            <br/><br/>
-        </div>
         <hr>
         <p>Owned by:</p>
         {% for home in car.home_set.all %}
