@@ -16,8 +16,22 @@
     <h3>Bathrooms: {{home.bathrooms}}</h3>
     <h3>Available: {{home.available}}</h3>
     <h3>{{home.price}}</h3>
-    <a href="{% url 'review_create' %}">Add Home Review</a>
 </div>
+        <div id="review-box">
+            <h2>Reviews</h2>
+            <hr>
+            {% if not home.reviews.all %}
+                No reviews Yet...<a href="{% url 'add_review' home.pk %}">
+                Add Review</a>
+                {% else %}
+                <a href="{% url 'add_review' home.pk %}">Add Review </a>
+                <br/>
+                {% for review in home.reviews.all %}
+                    <p>Reviews: {{ review.review_content }}</p>
+                    <p>Ratings: {{ review.rating }}</p>
+                {% endfor %}
+            {% endif %}
+            </div>
     <hr>
     {% for car in home.car.all %}
     <div>
