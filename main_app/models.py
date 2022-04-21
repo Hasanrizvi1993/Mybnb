@@ -67,3 +67,15 @@ class Home(models.Model):
 
     class Meta:
         ordering = ['location']
+
+
+    #review model
+class Review(models.Model):
+    home = models.ForeignKey(Home, related_name="reviews", on_delete=models.CASCADE)
+    review_content = models.CharField(max_length=100)
+    rating = models.FloatField(
+    validators=[MinValueValidator(0.0), MaxValueValidator(10.0)],
+    )       
+
+    def __str__(self):
+        return '%s - %s' % (self.home, self.review_content) 
