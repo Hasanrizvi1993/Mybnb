@@ -29,6 +29,7 @@
                 {% for review in home.reviews.all %}
                     <p>Reviews: {{ review.review_content }}</p>
                     <p>Ratings: {{ review.rating }}</p>
+                    <hr>
                 {% endfor %}
             {% endif %}
             </div>
