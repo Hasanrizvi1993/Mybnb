@@ -16,6 +16,23 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 # Create your views here.
 
+#search_homes
+def search_homes(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        homes = Home.objects.filter(location__contains=searched)
+        return render(request,
+        'search_homes.html',
+        {'searched':searched, 'homes':homes})
+    else:
+        return render(request,
+        'search_homes.html',
+        {})
+
+
+
+
+
 # Here we will be creating a class called Home and extending it from the View class
 class Home_index(TemplateView):
     template_name="home.html"

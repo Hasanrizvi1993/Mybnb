@@ -21,10 +21,10 @@ urlpatterns = [
     path('homes/<int:pk>/review', views.AddReviewView.as_view(), name="add_review"),
 #auth
     path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_view, name='logout'),
+    path('logout/', views.logout_view, name='logout'), 
     path('signup/', views.signup_view, name='signup'),
 #searchbar
-    path('search_homes/', views.search_homes, name='search-homes '),
+    path('search_homes/', views.search_homes, name='search_homes'),
 ]
 
 
