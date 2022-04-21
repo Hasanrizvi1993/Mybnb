@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center>
+        {% if searched %}
+        <h1>You Searched For {{ searched }}</h1>
+        {% for car in cars %}
+        <p>Click the name for more details about the car</p>
+        <a href="{% url 'car_show' car.id %}">{{ car.make }}</a>
+        <p>Located in: {{ car.location }}
+        <br/>
+        {% endfor %}
+        {% else %}
+            <h1>Hey! you forgot to search for a car for your next stay</h1>
+        {% endif %}
+
+
+
+    </center>
+
+{% endblock %}

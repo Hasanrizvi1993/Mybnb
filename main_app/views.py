@@ -29,6 +29,18 @@ def search_homes(request):
         'search_homes.html',
         {})
 
+#serach_cars
+def search_cars(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        cars = Car.objects.filter(location__contains=searched)
+        return render(request,
+        'search_cars.html',
+        {'searched':searched, 'cars':cars})
+    else:
+        return render(request,
+        'search_cars.html',
+        {})
 
 
 

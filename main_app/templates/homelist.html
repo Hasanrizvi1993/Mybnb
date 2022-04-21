@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
-    <h1>Our Homes:</h1>
+    <h1>Places to stay</h1>
     {% for home in homes %}
     <img src="{{home.image}}" alt="{{home.location}}">
-    <h3>Location:</h3>
+    <h3>Located in:</h3>
     <a href="{% url 'home_detail' home.pk %}">
     <h3>{{home.location}}</h3>
     </a>

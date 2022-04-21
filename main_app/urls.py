@@ -26,6 +26,7 @@ urlpatterns = [
     path('signup/', views.signup_view, name='signup'),
 #searchbar
     path('search_homes/', views.search_homes, name='search_homes'),
+    path('search_cars/', views.search_cars, name='search_cars'),
 ]
 
 
