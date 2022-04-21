@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>{{ user.username }}'s Car Listings:</h1>
+<a href='/user/{{car.user.username}}/cars'>{{car.user.username}}</a>
+{% for car in cars %}
+<a href="/cars/{{ car.id }}"></a>
+<p>{{car.make}}</p>
+<img src="{{ car.image }}">
+{% endfor %}
+
+{% endblock %}

@@ -11,7 +11,11 @@
             <p>Color: {{ car.color }}</p>
             <p>Year: {{ car.year }}</p>
             <p>Price: {{ car.car_price }}</p>
+            <p>Car Location: {{ car.location }}</p>
             <a href="{% url 'car_show' car.id %}">Details about this car</a>
+            <p>Added By: 
+                <a href='/user/{{car.user.username}}/cars'>{{car.user.username}}</a>
+            </p>
         </div>
         <hr>
     </div>

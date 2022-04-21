@@ -28,7 +28,7 @@
                 No reviews Yet...<a href="{% url 'add_review' home.pk %}">
                 Add Review</a>
                 {% else %}
-                <a href="{% url 'add_review' home.pk %}">Add Review </a>
+                <button><a href="{% url 'add_review' home.pk %}">Add Review </a></button>
                 <br/>
                 {% for review in home.reviews.all %}
                     <p>Reviews: {{ review.review_content }}</p>
@@ -53,7 +53,7 @@
     {% endif %}
     
     </div>
-        <a href="{% url 'car_show' car.pk %}">Check out more info about car</a>
+        <button><a href="{% url 'car_show' car.pk %}">Check out more info about car</a></button>
     {% empty %}
         <div>This House has no cars</div>
     {% endfor %}

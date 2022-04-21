@@ -86,12 +86,18 @@ class Home_Delete(DeleteView):
     success_url = "/homes/"
 
 
+
 @login_required
 def profile(request, username):
     user = User.objects.get(username=username)
     homes = Home.objects.filter(user=user)
     return render(request, 'profile.html', {'username': username, 'homes': homes})
 
+@login_required
+def car_profile(request, username):
+    user = User.objects.get(username=username)
+    cars = Car.objects.filter(user=user)
+    return render(request, 'car_profile.html', {'username': username, 'cars': cars})
 #Car Views
 def car_home(request):
     cars = Car.objects.all()
@@ -104,14 +110,20 @@ def car_show(request, car_id):
 @method_decorator(login_required, name='dispatch')
 class CarCreate(CreateView):
     model = Car
-    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available', 'car_contact_name', 'car_contact_email', 'car_price']
+    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available', 'car_contact_name', 'car_contact_email', 'car_price', 'location']
     template_name = "car_form.html"
     success_url = '/cars'
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect('/cars')
 
 @method_decorator(login_required, name='dispatch')
 class CarUpdate(UpdateView):
     model = Car
-    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available', 'car_contact_name', 'car_contact_email', 'car_price']
+    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available', 'car_contact_name', 'car_contact_email', 'car_price', 'location']
     template_name = "car_update.html"
     success_url = '/cars'
 

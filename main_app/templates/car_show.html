@@ -12,7 +12,11 @@
         <p>Model: {{ car.model }}</p>
         <p>Year: {{ car.year }}</p>
         <p>Car Type: {{ car.car_type }}</p>
-        <p>Available: {{ car.available }}</p>
+        {% if car.available %}
+        <p>Available: Yes</p>
+        {% else %}
+        <p>Available: No</p>
+        {% endif %}
         <p>Contact Name: {{car.car_contact_name}}</p>
         <p>Contact Email: {{car.car_contact_email}}</p>
         <p>Price: {{car.car_price}}</p>
@@ -28,7 +32,7 @@
             <img src="{{home.image}}" alt="{{home.location}}">
             <br>
             <br>
-            <a href="{% url 'home_detail' home.pk %}">Check out more info about this home</a>
+            <button><a href="{% url 'home_detail' home.pk %}">Check out more info about this home</a></button>
         {% empty %}
             <p>No Home has this car</p>
         {% endfor %}

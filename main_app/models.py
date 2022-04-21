@@ -39,6 +39,9 @@ class Car(models.Model):
     car_contact_name = models.CharField(max_length=200)
     car_contact_email = models.CharField(max_length=254)
     car_price = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
 
 
     def __str__(self):

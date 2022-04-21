@@ -1,3 +1,20 @@
-h1 {
-    color: green;
+body {
+    padding: 25px;
+    background-color: white;
+    color: black;
+    max-width: max-content;
+    margin: auto;
+    text-align: center;
+}
+  
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+img {
+    float: center;
+    width:  50%;
+    height: 50%;
+    object-fit: cover;
 }

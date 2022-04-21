@@ -7,4 +7,5 @@
     <input type="search" placeholder="Search Homes" name="searched">
     <button type="submit">Submit</button>
   </form>
+  <span><a href="{% url 'car_profile' user.username %}">Hello, {{ user.username }}, checkout your cars!</a></span>
 {% endblock %}

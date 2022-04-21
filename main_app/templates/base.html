@@ -11,7 +11,6 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-  <body>
     <nav>
         {% if user.is_authenticated %}
         <span><a href="{% url 'profile' user.username %}">Hello, {{ user.username }}!</a></span>
@@ -37,6 +36,13 @@
         <span> | </span>
         <a href="{% url 'car_create' %}">Add a Car</a>
         <span> | </span>
+        <button onclick="myFunction()">Dark Mode On/Off</button>
+        <script>
+          function myFunction() {
+             let element = document.body;
+             element.classList.toggle("dark-mode");
+          }
+        </script>
       {% block content %}
       {% endblock %}
       {% block potato %}
