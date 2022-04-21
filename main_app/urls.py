@@ -17,6 +17,8 @@ urlpatterns = [
     path('cars/create/', views.CarCreate.as_view(), name='car_create'),
     path('cars/<int:pk>/update/', views.CarUpdate.as_view(), name='car_update'),
     path('cars/<int:pk>/delete/', views.CarDelete.as_view(), name='car_delete'),
+#Review Routes   
+    path('homes/<int:pk>/review', views.AddReviewView.as_view(), name="add_review"),
 #auth
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
