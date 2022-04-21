@@ -84,6 +84,18 @@ def car_show(request, car_id):
 
 class CarCreate(CreateView):
     model = Car
-    fields = '__all__'
+    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available']
     template_name = "car_form.html"
+    success_url = '/cars'
+
+
+class CarUpdate(UpdateView):
+    model = Car
+    fields = ['make', 'model', 'year', 'image', 'color', 'car_type', 'available']
+    template_name = "car_update.html"
+    success_url = '/cars'
+
+class CarDelete(DeleteView):
+    model = Car
+    template_name = "car_confirm_delete.html"
     success_url = '/cars'

@@ -17,6 +17,12 @@
     <h3>Available: {{home.available}}</h3>
     <h3>{{home.price}}</h3>
 </div>
+    {% for car in home.car.all %}
+        <div>{{car.make}}</div>
+    {% empty %}
+        <div>This House has no cars</div>
+    {% endfor %}
+
 <div>
     <a href="{% url 'home_update' home.pk %}">Update</a>
     <a href="{% url 'home_delete' home.pk %}">Delete</a>
