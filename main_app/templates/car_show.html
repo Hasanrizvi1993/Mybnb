@@ -8,11 +8,17 @@
     <div>
         <span>{{ car.make }}</span>
         <p>Color: {{ car.color }}</p>
+        <img src="{{car.image}}" alt="{{car.make}}">
+        <p>Model: {{ car.model }}</p>
+        <p>Year: {{ car.year }}</p>
+        <p>Car Type: {{ car.car_type }}</p>
+        <p>Available: {{ car.available }}</p>
         <p>Owned by:</p>
         {% for home in car.home_set.all %}
             <p>{{home.location}}</p>
+            <img src="{{home.image}}" alt="{{home.location}}">
         {% empty %}
-            <p>Nobody Home has this car</p>
+            <p>No Home has this car</p>
         {% endfor %}
     </div>
     <div>
