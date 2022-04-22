@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<br/>
+<div id="addacarform">
 <h4>Add a Car</h4>
 <form action="" method="post">
-    <div class="form-group">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
         </table>
         <input class="btn btn-primary" type="submit" value="Submit!">
-    </div>
-    </form>
-
+</form>
+</div>
 {% endblock %}

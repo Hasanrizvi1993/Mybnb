@@ -28,7 +28,7 @@
                 No reviews Yet...<a href="{% url 'add_review' home.pk %}">
                 Add Review</a>
                 {% else %}
-                <button><a href="{% url 'add_review' home.pk %}">Add Review </a></button>
+                <button><a href="{% url 'add_review' home.pk %}">Add Reviews</a></button>
                 <br/>
                 {% for review in home.reviews.all %}
                     <p>Reviews: {{ review.review_content }}</p>

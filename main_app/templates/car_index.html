@@ -6,7 +6,7 @@
 
 {% for car in cars %}
     <div>
-        <div class="card-content">
+        <div>
             <span>{{ car.make }}</span> 
             <p>Color: {{ car.color }}</p>
             <p>Year: {{ car.year }}</p>
@@ -16,8 +16,8 @@
             <p>Added By: 
                 <a href='/user/{{car.user.username}}/cars'>{{car.user.username}}</a>
             </p>
+            <hr>
         </div>
-        <hr>
     </div>
 {% endfor %}
 

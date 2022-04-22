@@ -58,18 +58,28 @@ img {
 }
 
 #signupform {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    width: 30%;
+    padding: 0;
+    margin: auto;
     box-sizing: border-box;
-    text-align: left;
+    text-align: center;
 
 }
 
-#signupformbutton {
-    margin-left and margin-right + width = 100%*/;
-    width:50%;
-    margin-left:25%;
-    margin-right:25%;
+
+#addacarform{
+    display: grid;
+	place-items: center;
+    border: 3px solid #dc3545!important;
+    padding: 10px;
+    background-color: #dc3545!important;
+}
+
+#addahome{
+    display: grid;
+	place-items: center;
+    border: 3px solid #dc3545!important;
+    padding: 10px;
+    background-color: #dc3545!important;
 }
 
