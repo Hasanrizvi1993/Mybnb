@@ -5,9 +5,12 @@
         {% if searched %}
         <h1>You Searched For {{ searched }}
         </h1>
+        <p>Click on the location to get details about this place</p>
         <br/>
         {% for home in homes %}
-        <a href="{% url 'home_detail' home.pk %}">{{ home.location }}</a>
+        <p><a href="{% url 'home_detail' home.pk %}">Located in: {{ home.location }}</a></p>
+        <p>Bedrooms: {{ home.bedrooms }}</p>
+        <p>Bedrooms: {{ home.bathrooms }}</p>
         <br/>
         {% endfor %}
         {% else %}
