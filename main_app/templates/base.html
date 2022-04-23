@@ -29,15 +29,33 @@
         <a class="navbar-brand" href="/cars">Cars to rent</a>
         <a class="navbar-brand" href="{% url 'home_create' %}">Add a place</a>
         <a class="navbar-brand" href="{% url 'car_create' %}">Add a Car</a>
-        <button type="button" class="btn btn-outline-dark" onclick="myFunction()">Light Mode On/Off</button>
+        <button type="button" class="btn btn-outline-dark" onclick="themeToggle()">Dark Mode On/Off</button>
+        <div id="theme"></div>
       </nav>
       <br/>
       <br/>
       <br/>
         <script>
-          function myFunction() {
-             let element = document.body;
-             element.classList.toggle("dark-mode");
+          (function() {
+            let onpageLoad = localStorage.getItem("theme") || "";
+            let element = document.body;
+            element.classList.add(onpageLoad);
+            document.getElementById("theme").textContent =
+              localStorage.getItem("theme") || "light";
+          })();
+
+          function themeToggle() {
+            let element = document.body;
+            element.classList.toggle("dark-mode");
+
+            let theme = localStorage.getItem("theme");
+            if (theme && theme === "dark-mode") {
+              localStorage.setItem("theme", "");
+            } else {
+              localStorage.setItem("theme", "dark-mode");
+            }
+
+            document.getElementById("theme").textContent = localStorage.getItem("theme");
           }
         </script>
 
