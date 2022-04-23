@@ -28,7 +28,7 @@
             <img src="{{home.image}}" alt="{{home.location}}">
             <br>
             <br>
-            <button><a href="{% url 'home_detail' home.pk %}">Check out more info about this home</a></button>
+            <a href="{% url 'home_detail' home.pk %}"><button class="btn btn-info">Check out details about this Home</button> </a>
         {% empty %}
             <p>No Home has this car</p>
         {% endfor %}

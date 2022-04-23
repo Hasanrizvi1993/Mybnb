@@ -13,8 +13,8 @@
 <br/>
 <br/>
 <div>
-    <button><a href="{% url 'home_update' home.pk %}">Update</a></button>
-    <button><a href="{% url 'home_delete' home.pk %}">Delete</a></button>
+    <a href="{% url 'home_update' home.pk %}"><button class="btn btn-success">Update</button> </a>
+    <a href="{% url 'home_delete' home.pk %}"><button class="btn btn-danger">Delete</button> </a>
 <br/><br/>
 </div>
 {% endfor %}

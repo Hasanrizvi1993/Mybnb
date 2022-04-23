@@ -2,41 +2,46 @@
 
 {% block content %}
 
-<div>
-  <img src="{{home.image}}" alt="{{home.location}}" />
-<br/><br/>
-</div>
-<div id="home-detail-box">
-    <br/>
-    <h5>{{home.location}}</h5>
-    <h5>Home Type: {{home.home_type}}</h5>
-    <h5>Amenities: {{home.amenities}}</h5>
-    <h5>Contact name: {{home.contact_name}}</h5>
-    <h5>Contact email: {{home.contact_email}}</h5>
-    <h5>Bedrooms: {{home.bedrooms}}</h5>
-    <h5>Bathrooms: {{home.bathrooms}}</h5>
-    {% if home.available %}
-    <h5>Available: Yes</h5>
-    {% else %}
-    <h5>Available: No</h5>
-    {% endif %}
-    <h5>{{home.price}}</h5>
-</div>
-        <div id="review-box">
-            <h2>Reviews</h2>
-            <hr>
+    <div>
+    <img src="{{home.image}}" alt="{{home.location}}" />
+    <br/><br/>
+    </div>
+    <div id="home-detail-box">
+        <br/>
+        <h5>{{home.location}}</h5>
+        <h5>Home Type: {{home.home_type}}</h5>
+        <h5>Amenities: {{home.amenities}}</h5>
+        <h5>Contact name: {{home.contact_name}}</h5>
+        <h5>Contact email: {{home.contact_email}}</h5>
+        <h5>Bedrooms: {{home.bedrooms}}</h5>
+        <h5>Bathrooms: {{home.bathrooms}}</h5>
+        {% if home.available %}
+        <h5>Available: Yes</h5>
+        {% else %}
+        <h5>Available: No</h5>
+        {% endif %}
+        <h5>{{home.price}}</h5>
+    </div>
+    <br/><br/>
+        <div class="card" style="width: 18rem; margin: auto">
+            <div class="card-header" style="color: black; font-size: 26px;">
+            Reviews
+            </div>
+            <div style="color: black; font-size: 15px;">
+            <br/>
             {% if not home.reviews.all %}
-                No reviews Yet...<a href="{% url 'add_review' home.pk %}">
-                Add Review</a>
+                No reviews Yet... <a href="{% url 'add_review' home.pk %}"><button class="btn btn-info">Add Reviews</button> </a>
                 {% else %}
-                <button><a href="{% url 'add_review' home.pk %}">Add Reviews</a></button>
+                <a href="{% url 'add_review' home.pk %}"><button class="btn btn-info">Add Reviews</button> </a>
                 <br/><br/>
                 {% for review in home.reviews.all %}
-                    <p>Reviews: {{ review.review_content }}</p>
-                    <p>Ratings: {{ review.rating }}</p>
+                <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush">Reviews: {{ review.review_content }}</ul>
+                    <ul class="list-group list-group-flush">Ratings: {{ review.rating }}</ul>
                     <hr>
                 {% endfor %}
             {% endif %}
+            </div>
             </div>
     <hr>
     {% for car in home.car.all %}
@@ -55,7 +60,7 @@
     {% endif %}
     
     </div>
-        <button><a href="{% url 'car_show' car.pk %}">Check out more info about car</a></button>
+        <a href="{% url 'car_show' car.pk %}"><button class="btn btn-info">Check out details about car</button> </a>
     {% empty %}
         <div>This House has no cars</div>
     {% endfor %}
