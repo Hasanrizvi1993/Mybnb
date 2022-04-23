@@ -4,10 +4,11 @@
 
 <div>
   <img src="{{home.image}}" alt="{{home.location}}" />
+<br/><br/>
 </div>
+<div id="home-detail-box">
+    <br/>
     <h1>{{home.location}}</h1>
-</div>
-<div>
     <h3>Home Type: {{home.home_type}}</h3>
     <h3>Amenities: {{home.amenities}}</h3>
     <h3>Contact name: {{home.contact_name}}</h3>
@@ -29,7 +30,7 @@
                 Add Review</a>
                 {% else %}
                 <button><a href="{% url 'add_review' home.pk %}">Add Reviews</a></button>
-                <br/>
+                <br/><br/>
                 {% for review in home.reviews.all %}
                     <p>Reviews: {{ review.review_content }}</p>
                     <p>Ratings: {{ review.rating }}</p>
@@ -40,8 +41,9 @@
     <hr>
     {% for car in home.car.all %}
     <div>
-    <h4>Make: {{car.make}}</h4>
     <img src="{{car.image}}" alt="{{car.make}}">
+    <br/><br/>
+    <h4>Make: {{car.make}}</h4>
     <h4>Model: {{car.model}}</h4>
     <h4>Year: {{car.year}}</h4>
     <h4>Color: {{car.color}}</h4>
