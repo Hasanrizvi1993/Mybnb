@@ -9,6 +9,8 @@
 <a href="/cars/{{ car.id }}"></a>
 <p>{{car.make}}</p>
 <img src="{{ car.image }}">
+<br/>
+<br/>
 <div>
     <button><a href="{% url 'car_update' car.id %}">Edit Car</a></button>
     <button><a href="{% url 'car_delete' car.id %}">Delete Car</a></button>
