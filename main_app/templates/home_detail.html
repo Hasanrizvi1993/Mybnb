@@ -8,19 +8,19 @@
 </div>
 <div id="home-detail-box">
     <br/>
-    <h1>{{home.location}}</h1>
-    <h3>Home Type: {{home.home_type}}</h3>
-    <h3>Amenities: {{home.amenities}}</h3>
-    <h3>Contact name: {{home.contact_name}}</h3>
-    <h3>Contact email: {{home.contact_email}}</h3>
-    <h3>Bedrooms: {{home.bedrooms}}</h3>
-    <h3>Bathrooms: {{home.bathrooms}}</h3>
+    <h5>{{home.location}}</h5>
+    <h5>Home Type: {{home.home_type}}</h5>
+    <h5>Amenities: {{home.amenities}}</h5>
+    <h5>Contact name: {{home.contact_name}}</h5>
+    <h5>Contact email: {{home.contact_email}}</h5>
+    <h5>Bedrooms: {{home.bedrooms}}</h5>
+    <h5>Bathrooms: {{home.bathrooms}}</h5>
     {% if home.available %}
-    <h3>Available: Yes</h3>
+    <h5>Available: Yes</h5>
     {% else %}
-    <h3>Available: No</h3>
+    <h5>Available: No</h5>
     {% endif %}
-    <h3>{{home.price}}</h3>
+    <h5>{{home.price}}</h5>
 </div>
         <div id="review-box">
             <h2>Reviews</h2>
