@@ -110,15 +110,63 @@ Delete Home
 <img width="1433" alt="Screen Shot 2022-04-26 at 9 24 58 PM" src="https://user-images.githubusercontent.com/88109038/165440512-f5974595-3fe6-4bd4-be56-cb53af696c9f.png">
 
 
+Installation Instructions
 
+In terminal 
+mkdir mybnb && cd mybnb
 
+In terminal - Make sure env is active
+pipenv shell
 
+1. Clone the repository
+git clone https://github.com/<username>/<forked-repo>.git
+  
+2. Create your own virtual environment
+python3 -m venv venv
+source venv/bin/activate
+  
+Virtual environments are where dependencies are stored, similar to node_modules in JavaScript. Every time you start your machine, you must activate the virtual environment using source venv/bin/activate.
+  
+3. Install your requirements
+pip install -r requirements.txt
+  
+4. Create a new PostgreSQL database
+For this, I’m assuming you already have pgAdmin and postgres installed. Apologies for the lack of detail here.
+In your terminal:
+$ psql postgres
+$ CREATE DATABASE databasename
+$ \connect databasename
+Go into pgAdmin, login, and check that the new database exists on the dbserver.
+The database credentials to go in your project’s settings.py are the same credentials for pgAdmin.
+settings.py
+DATABASES = {
+‘default’: {
+‘ENGINE’: ‘django.db.backends.postgresql_psycopg2’,
+‘NAME’: env(‘DATABASE_NAME’),
+‘USER’: env(‘DATABASE_USER’),
+‘PASSWORD’: env(‘DATABASE_PASS’),
+}
+}
+  
+5. Generate a new secret key
+I also use a .env file to secure my secret key and database credentials. 
 
-
-
-
-
-
+6. Rename the project
+Rename the directory that contains settings.py. Do a find all and replace to rename all instances of the new project name.
+  
+7. Make your migrations
+The only migrations that should appear in each of your app’s migrations folders are called ‘__init__.py’. As we have started a new database, we can delete any existing migrations and migrate from scratch.
+In your terminal:
+python manage.py makemigrations
+python manage.py migrate
+  
+8. Create a new superuser
+python manage.py createsuperuser
+  
+9. Final checks
+Start the development server and ensure everything is running without errors.
+python manage.py runserver
+_________________________________________________________________________________________________________________________________________________________
 
 
 Future Enhancement
