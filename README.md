@@ -119,7 +119,7 @@ In terminal - Make sure env is active
 pipenv shell
 
 1. Clone the repository
-git clone https://github.com/<username>/<forked-repo>.git
+git clone https://github.com/username/forked-repo.git
   
 2. Create your own virtual environment
 python3 -m venv venv
