@@ -4,7 +4,7 @@
 Django, Python3, HTML, CSS, Bootstrap, PostgreSQL, Javascript
 
 ## About
-Mybnb is an online marketplace that connects people who want to rent out their homes and cars. This application combines and brings a home rental and a car rental into a single platform. I allows people who are looking for accommodations & wanting to rent automobiles in specific locales. Customer can also use this site and use the search function to locate car or homes or both in the city they plan to visit. They can use the listers email to contact them and book the home or car or both.
+Mybnb is an online marketplace that connects people who want to rent out their homes and cars. This application combines and brings a home rental and a car rental into a single platform. It allows people who are looking for accommodations & wanting to rent automobiles in specific locales. Customer can also use this site and use the search function to locate car or homes or both in the city they plan to visit. They can use the listers email to contact them and book the home or car or both.
 
 
 
