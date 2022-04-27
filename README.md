@@ -1,6 +1,6 @@
 # Mybnb
 
-#Technologies used: Django, Python3, HTML, CSS, Bootstrap, PostgreSQL
+## Technologies used: Django, Python3, HTML, CSS, Bootstrap, PostgreSQL
 
 ## About
 Mybnb is an online marketplace that connects people who want to rent out their homes and cars 
